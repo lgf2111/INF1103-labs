@@ -3,7 +3,11 @@
 
 def get_valid_input():
     """Prompt for a stock value and return either a valid integer or a quit signal."""
-    user_input = input("Enter stock quantity (or 'quit' to finish): ")
+    try:
+        user_input = input("Enter stock quantity (or 'quit' to finish): ")
+    except EOFError:
+        print("\nInput closed. Ending audit.")
+        return "quit"
 
     if user_input.strip().lower() == "quit":
         return "quit"
