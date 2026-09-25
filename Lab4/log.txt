@@ -1,3 +1,9 @@
+commit b0a4142aa6912f0be6fa1be775ac59e96d201d79
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 25 16:37:43 2026 +0800
+
+    Add git log for Lab4 submission
+
 commit 1268cb8740d1b7fd7c4bf09b85432af6fe5a228a
 Author: lgf2111 <lgf2111@gmail.com>
 Date:   Fri Sep 25 16:37:27 2026 +0800
