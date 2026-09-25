@@ -1,128 +1,106 @@
-"""Persistent stock delivery auditor.
+"""Persistent order auditor.
 
-Extends the modular auditor with data persistence:
-- load_inventory() reads the previously saved total and transaction history
-  from inventory.txt at startup (starts empty if the file is missing).
-- A Python list tracks every valid transaction amount entered.
-- save_inventory() writes the final total and transaction history back to
-  inventory.txt when the user quits.
+Extends the modular auditor with data persistence for a store order system:
+- load_inventory() reads previously saved orders from inventory.txt at startup
+  (starts with an empty inventory if the file is missing, without error).
+- A Python list (array) tracks every valid order entered during the session.
+- save_inventory() writes the full order list back to inventory.txt on quit.
+
+Each order is stored as a CSV line: id,product_name,quantity
 """
 
 INVENTORY_FILE = "inventory.txt"
+STARTING_ID = 1001
 
 
 def load_inventory():
-    """Load the saved total and transaction history from the inventory file.
+    """Load saved orders from the inventory file.
 
-    Returns a tuple of (total_units, history_list). If the file does not
-    exist, start with a total of 0 and an empty history list without error.
+    Returns a list of order dicts: {"id": int, "name": str, "qty": int}.
+    If the file does not exist, return an empty list without raising an error.
     """
-    total_units = 0
-    history = []
+    orders = []
 
     try:
         with open(INVENTORY_FILE, "r") as f:
-            lines = [line.strip() for line in f.readlines()]
+            lines = f.readlines()
     except FileNotFoundError:
-        print("No existing inventory file found. Starting with an empty inventory.")
-        return total_units, history
+        print("No existing inventory file found. Starting with an empty inventory.\n")
+        return orders
 
     for line in lines:
+        line = line.strip()
         if not line:
             continue
-        if line.startswith("TOTAL:"):
-            try:
-                total_units = int(line.split(":", 1)[1].strip())
-            except ValueError:
-                total_units = 0
-        elif line.startswith("HISTORY:"):
-            values = line.split(":", 1)[1].strip()
-            if values:
-                for item in values.split(","):
-                    item = item.strip()
-                    if item.lstrip("-").isdigit():
-                        history.append(int(item))
+        parts = line.split(",")
+        if len(parts) != 3:
+            continue
+        order_id, name, qty = parts[0].strip(), parts[1].strip(), parts[2].strip()
+        if order_id.isdigit() and qty.lstrip("-").isdigit():
+            orders.append({"id": int(order_id), "name": name, "qty": int(qty)})
 
-    return total_units, history
+    return orders
 
 
-def save_inventory(total_units, history):
-    """Save the final total and transaction history list to the inventory file."""
+def save_inventory(orders):
+    """Save the full order list back to the inventory file."""
     with open(INVENTORY_FILE, "w") as f:
-        f.write(f"TOTAL: {total_units}\n")
-        history_str = ",".join(str(value) for value in history)
-        f.write(f"HISTORY: {history_str}\n")
-    print(f"Inventory successfully saved to {INVENTORY_FILE}")
+        for order in orders:
+            f.write(f"{order['id']},{order['name']},{order['qty']}\n")
+    print(f"Order successfully saved to {INVENTORY_FILE}")
 
 
-def get_valid_input():
-    """Prompt for a stock value and return either a valid integer or a quit signal."""
-    try:
-        user_input = input("Enter stock quantity (or 'quit' to finish): ")
-    except EOFError:
-        print("\nInput closed. Ending audit.")
-        return "quit"
+def display_orders(orders):
+    """Print the current orders in the store."""
+    print("Current Orders:\n")
+    for order in orders:
+        print(f"{order['id']}, {order['name']}, {order['qty']}")
+    print()
 
-    if user_input.strip().lower() == "quit":
-        return "quit"
 
-    if not user_input.strip() or not user_input.strip().lstrip("-").isdigit():
-        print("Error: Please enter a valid integer or 'quit'.")
+def next_order_id(orders):
+    """Return the next order id, continuing from the highest existing id."""
+    if not orders:
+        return STARTING_ID
+    return max(order["id"] for order in orders) + 1
+
+
+def get_valid_quantity():
+    """Prompt for a quantity and return a positive integer, or None if invalid."""
+    raw = input("Enter Quantity: ").strip()
+    if not raw or not raw.lstrip("-").isdigit():
+        print("Error: Please enter a valid integer quantity.\n")
         return None
-
-    value = int(user_input.strip())
-
-    if value < 0:
-        print("Error: Negative stock quantity is not allowed.")
+    qty = int(raw)
+    if qty <= 0:
+        print("Error: Quantity must be a positive number.\n")
         return None
-
-    return value
-
-
-def process_delivery(current_total, new_value):
-    """Add a valid delivery value to the running total and return the new total."""
-    return current_total + new_value
-
-
-def calculate_tax(amount):
-    """Return tax for a delivery value using a 10% rate."""
-    return amount * 0.10
-
-
-def generate_report(total_units, failed_attempts, history):
-    """Print a final summary report for the stock audit."""
-    print(f"Total Deliveries Processed: {total_units}")
-    print(f"Number of Failed/Rejected Entries: {failed_attempts}")
-    print(f"Transaction History: {history}")
+    return qty
 
 
 def main():
-    total_units, history = load_inventory()
-    failed_attempts = 0
-    total_tax = 0.0
-
-    print("Current Inventory:")
-    print(f"Starting Total: {total_units}")
-    print(f"Transaction History: {history}\n")
+    orders = load_inventory()
 
     while True:
-        user_value = get_valid_input()
+        display_orders(orders)
 
-        if user_value == "quit":
-            generate_report(total_units, failed_attempts, history)
-            save_inventory(total_units, history)
+        name = input("Enter Product Name (or 'quit' to finish): ").strip()
+        if name.lower() == "quit":
+            save_inventory(orders)
             break
-
-        if user_value is None:
-            failed_attempts += 1
+        if not name:
+            print("Error: Product name cannot be empty.\n")
             continue
 
-        total_units = process_delivery(total_units, user_value)
-        history.append(user_value)
-        tax = calculate_tax(user_value)
-        total_tax += tax
+        qty = get_valid_quantity()
+        if qty is None:
+            continue
 
-        print(f"Delivery accepted: {user_value} units. Tax for this delivery: ${tax:.2f}")
+        order_id = next_order_id(orders)
+        orders.append({"id": order_id, "name": name, "qty": qty})
+
+        print("\nNew Order Added:")
+        print(f"{order_id},{name},{qty}\n")
 
 
 if __name__ == "__main__":
