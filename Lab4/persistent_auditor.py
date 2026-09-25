@@ -45,8 +45,7 @@ def load_inventory():
 def save_inventory(orders):
     """Save the full order list back to the inventory file."""
     with open(INVENTORY_FILE, "w") as f:
-        for order in orders:
-            f.write(f"{order['id']},{order['name']},{order['qty']}\n")
+        f.writelines(f"{order['id']},{order['name']},{order['qty']}\n" for order in orders)
     print(f"Order successfully saved to {INVENTORY_FILE}")
 
 
