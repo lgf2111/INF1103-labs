@@ -1,0 +1,255 @@
+commit ec062cbd88b878a0828fa8b1faeff50209c6250f
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:51:05 2026 +0800
+
+    Lab6/Lab7: add docker and program output images
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit be5d1b89625bbd4334605db8d1f7c6056e0936d2
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:46 2026 +0800
+
+    Lab7: add UML class diagram, inventory data and reflection
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit b0a15e4a63358551851263d27f605b9ee6ac88b4
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:46 2026 +0800
+
+    Lab6: add git log
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit 5caa678da91fea3bf93228c00ee6ba0ce53849e1
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:25 2026 +0800
+
+    Lab7: add tests for the Section 7 checklist
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit cfeeef3f8924c18aea778a4b6c4e9bd3db30b658
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:25 2026 +0800
+
+    Lab7: integrate product types into the menu and JSON persistence
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit ef5d5f9d3412a0b979527d3ba7c990bbb9142de3
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:25 2026 +0800
+
+    Lab7: add SubscriptionProduct for the optional OCP task
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit edb29b6c60aeb913fc5a2c99be76234966e185a1
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:25 2026 +0800
+
+    Lab7: add PhysicalProduct and DigitalProduct subclasses
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit 6a105b26a4c059e1ec2f57b143d5a378ed1c1976
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:25 2026 +0800
+
+    Lab7: add CanBeShipped interface
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit 182391d6d37031cc69ca9ff5673af27a010315c9
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:25 2026 +0800
+
+    Lab7: make Product abstract with get_fulfilment_info
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit 83113d9c9886d9c22beebea70d339bb3c2803e17
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:25 2026 +0800
+
+    Lab7: add Python, environment and IDE exclusions to .gitignore
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit 188192269a2e39d5ee56255ec775049aced43180
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:25 2026 +0800
+
+    Lab6: complete OOP inventory system with UML, data and reflection
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit 51576dfaa2e21721751766a7b788f8cf6b8b4bec
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:25 2026 +0800
+
+    Lab6: refactor inventory system using OOP
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit 06ddddb95d052a84717f50af79b4f841e15c00ce
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:25 2026 +0800
+
+    Lab6: create Inventory class
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit 377230f4702d1ae2d2379302b98af65b30adeb57
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:50:22 2026 +0800
+
+    Lab6: create Product class
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit bc8fe220c6cb534a1749abc6c3467a9550f4da7e
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Oct 2 17:49:56 2026 +0800
+
+    Untrack zip archives now covered by .gitignore
+
+commit 45be6b3b02db5613e833736382270a06179b02c4
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Oct 2 17:48:54 2026 +0800
+
+    Add .gitignore for .DS_Store and zip files
+
+commit a3b5ca988d999d990dbfe65fe1ff70b7a72cfeb9
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Oct 2 17:47:34 2026 +0800
+
+    Lab5: add git log, docker screenshots, and lab PDFs
+
+commit 1df54065f96acf61e312994e5aa45382a2d4b5ed
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Oct 2 16:41:02 2026 +0800
+
+    Lab5: inventory management system with JSON persistence and Docker
+
+commit 805eafd074c426e16c60bc17b8d2d27f561e1fbf
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 25 16:54:52 2026 +0800
+
+    Completed Lab 4
+
+commit 38e36c0fe9de9bf8cc07d7198dec3587ccb15ff3
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 25 16:40:21 2026 +0800
+
+    Refresh git log.txt
+
+commit 81e952fb27822ea8fc64420deec8ab04d86bd764
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 25 16:40:21 2026 +0800
+
+    Rework auditor to order-entry model matching sample expected output
+
+commit 224e6e7762ac32736c029a813811efa895655b3f
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 25 16:37:43 2026 +0800
+
+    Update git log.txt with full history
+
+commit b0a4142aa6912f0be6fa1be775ac59e96d201d79
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 25 16:37:43 2026 +0800
+
+    Add git log for Lab4 submission
+
+commit 1268cb8740d1b7fd7c4bf09b85432af6fe5a228a
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 25 16:37:27 2026 +0800
+
+    Add Dockerfile for volume-mounted persistence; save_inventory() verified
+
+commit 6a8ed9df93b8104297d5eb1b31edc05c7aae910d
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 25 16:37:20 2026 +0800
+
+    Track transaction history list, persisted to inventory.txt
+
+commit ac6fc3dd854eb32b7a9a0de12d786ab46206344a
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 25 16:37:13 2026 +0800
+
+    Add persistent_auditor with load_inventory() reading saved inventory at startup
+
+commit c45eebada5331c94d2378f41de47acf8648c41a9
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sun Sep 20 01:27:57 2026 +0800
+
+    upload zip
+
+commit 7d33afdf2f365d64c050121b356dc1e386de051e
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sun Sep 20 01:26:11 2026 +0800
+
+    upload images
+
+commit f1973a3712211cd6261a44951595e5a59858c022
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sun Sep 20 01:03:05 2026 +0800
+
+    done lab 3
+
+commit 1ca3782f2611ec3e3c618fdf07370ec89228a2f1
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sun Sep 20 01:00:18 2026 +0800
+
+    Add modular auditor and Dockerfile for Lab3
+
+commit 537c035020146882f368d3d8dbd8c4872fa53cab
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 11 16:38:08 2026 +0800
+
+    renamed zips
+
+commit 862a6bb68129121fddefa54f1a0613a0f8c6e46d
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 11 16:36:20 2026 +0800
+
+    upload necessary lab submission resources
+
+commit d5a4c1b2403688eb2d7605941bd36a1a33f0d2f9
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 11 16:30:59 2026 +0800
+
+    done auditor.py and dockerfile
+
+commit 7239a25f22fce8188341861ea3b46980ad69a54d
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 11 16:19:30 2026 +0800
+
+    moved lab 1 resources to lab1 folder
+
+commit 14d686fd12a1210df54ccd98e3409a0665c0d467
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 4 16:50:09 2026 +0800
+
+    Something fun to think about
+
+commit 4ce72264bbffb1ce28555b9ab269c46b21243ba1
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 4 16:49:07 2026 +0800
+
+    Interactive profile creator
+
+commit 4c217d57cd6a586629e25a6ad5f422822e1fda95
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 4 16:47:00 2026 +0800
+
+    Follower Growth tracker
+
+commit eb034b2223c56d9c452f239fd2c9b1481368481b
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Fri Sep 4 16:42:46 2026 +0800
+
+    First Post
