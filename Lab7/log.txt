@@ -1,3 +1,19 @@
+commit 312086e8a006dbe69e685b7ae6be53e16e25b616
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:51:30 2026 +0800
+
+    Lab7: tidy git workflow image
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit dc04f5797ae08f145078759728c97d0f7d58bd9a
+Author: lgf2111 <lgf2111@gmail.com>
+Date:   Sat Oct 31 05:51:05 2026 +0800
+
+    Lab7: add git log
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
 commit ec062cbd88b878a0828fa8b1faeff50209c6250f
 Author: lgf2111 <lgf2111@gmail.com>
 Date:   Sat Oct 31 05:51:05 2026 +0800
