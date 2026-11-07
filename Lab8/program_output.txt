@@ -1,0 +1,28 @@
+== 2. Association: Supplier - Product ==
+Supplier S001: TechSource <sales@techsource.example>
+Supplier S001: TechSource <sales@techsource.example>
+Same Supplier object: True
+
+== 3. Aggregation: Inventory - Product ==
+Laptop still usable after removal: Laptop 15
+Laptop in A: None | in B: True
+
+== 4. Composition: Order - OrderLine ==
+Order O001
+  2 x Laptop @ $1200.00 = $2400.00
+  1 x Antivirus @ $39.90 = $39.90
+  Total: $2439.90
+Order O002
+  1 x Laptop @ $1200.00 = $1200.00
+  Total: $1200.00
+OrderLine objects distinct: True
+Product object shared: True
+After removing a line, order 1 total: $2400.00
+
+== 6/7. LSP and polymorphism ==
+ID: P001 | Name: Laptop | Price: $1200.00 | Stock: 15
+    Weight: 2.50 kg
+   -> This product requires physical shipping.
+ID: D001 | Name: Antivirus | Price: $39.90 | Stock: 100
+    Download Size: 850.00 MB
+   -> This product is delivered digitally.

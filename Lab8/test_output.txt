@@ -1,0 +1,18 @@
+test_duplicate_id_rejected (test_inventory.AggregationTests.test_duplicate_id_rejected) ... ok
+test_remove_and_transfer_does_not_destroy_product (test_inventory.AggregationTests.test_remove_and_transfer_does_not_destroy_product) ... ok
+test_remove_missing_raises (test_inventory.AggregationTests.test_remove_missing_raises) ... ok
+test_product_keeps_supplier_after_variable_deleted (test_inventory.AssociationTests.test_product_keeps_supplier_after_variable_deleted) ... ok
+test_invalid_quantity (test_inventory.CompositionTests.test_invalid_quantity) ... ok
+test_order_creates_lines_and_totals (test_inventory.CompositionTests.test_order_creates_lines_and_totals) ... ok
+test_remove_line_updates_total (test_inventory.CompositionTests.test_remove_line_updates_total) ... ok
+test_same_product_in_two_orders_gives_two_lines_one_product (test_inventory.CompositionTests.test_same_product_in_two_orders_gives_two_lines_one_product) ... ok
+test_one_collection_polymorphic_calls (test_inventory.LspPolymorphismTests.test_one_collection_polymorphic_calls) ... ok
+test_product_is_abstract (test_inventory.LspPolymorphismTests.test_product_is_abstract) ... ok
+test_update_stock_contract_preserved_by_all_subclasses (test_inventory.LspPolymorphismTests.test_update_stock_contract_preserved_by_all_subclasses) ... ok
+test_round_trip_shares_suppliers (test_inventory.PersistenceTests.test_round_trip_shares_suppliers) ... ok
+test_hints_present (test_inventory.TypeHintTests.test_hints_present) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.001s
+
+OK
