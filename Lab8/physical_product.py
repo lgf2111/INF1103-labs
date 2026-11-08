@@ -16,9 +16,9 @@ class PhysicalProduct(Product, CanBeShipped):
         super().__init__(product_id, name, price, stock, supplier)
         if weight <= 0:
             raise ValueError("Weight must be greater than zero.")
-        self.__weight = weight
+        self.__weight: float = weight
 
-    def get_weight(self):
+    def get_weight(self) -> float:
         return self.__weight
 
     def display_information(self) -> None:
@@ -26,7 +26,7 @@ class PhysicalProduct(Product, CanBeShipped):
         super().display_information()
         print(f"    Weight: {self.__weight:.2f} kg")
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, object]:
         """Return this product's data, tagged with its type."""
         data = super().to_dict()
         data["type"] = "physical"
@@ -36,6 +36,6 @@ class PhysicalProduct(Product, CanBeShipped):
     def get_fulfilment_info(self) -> str:
         return "This product requires physical shipping."
 
-    def calculate_shipping_cost(self):
+    def calculate_shipping_cost(self) -> float:
         """Return a flat base cost plus a charge for each kilogram."""
         return BASE_SHIPPING_COST + SHIPPING_COST_PER_KG * self.__weight

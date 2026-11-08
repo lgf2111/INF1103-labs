@@ -17,9 +17,9 @@ class Product(ABC):
                  stock: int, supplier: Supplier) -> None:
         if price < 0:
             raise ValueError("Price cannot be negative.")
-        self.__product_id = product_id
-        self.__name = name
-        self.__price = price
+        self.__product_id: str = product_id
+        self.__name: str = name
+        self.__price: float = price
         self.__stock: int = 0
         self.supplier: Supplier = supplier  # association
         self.update_stock(stock)
@@ -49,7 +49,7 @@ class Product(ABC):
             f"Price: ${self.__price:.2f} | Stock: {self.__stock}"
         )
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, object]:
         """Return the common data stored in inventory.json for this product."""
         return {
             "id": self.__product_id,

@@ -11,5 +11,5 @@ class CanBeShipped(ABC):
     """Implemented by anything that can be physically shipped."""
 
     @abstractmethod
-    def calculate_shipping_cost(self):
+    def calculate_shipping_cost(self) -> float:
         """Return the cost of shipping this item, in dollars."""

@@ -16,13 +16,14 @@ from can_be_shipped import CanBeShipped
 from digital_product import DigitalProduct
 from inventory import Inventory
 from physical_product import PhysicalProduct
+from product import Product
 from subscription_product import SubscriptionProduct
 from supplier import Supplier
 
 INVENTORY_FILE = "inventory.json"
 
 
-def create_default_inventory():
+def create_default_inventory() -> Inventory:
     """Return an Inventory holding the starter products."""
     inventory = Inventory()
     tech = Supplier("S001", "TechSource Pte Ltd", "sales@techsource.example")
@@ -34,7 +35,7 @@ def create_default_inventory():
     return inventory
 
 
-def supplier_from_record(record, suppliers):
+def supplier_from_record(record: dict, suppliers: dict[str, Supplier]) -> Supplier:
     """Return the shared Supplier for a record, creating it the first time."""
     data = record["supplier"]
     if data["supplier_id"] not in suppliers:
@@ -43,7 +44,7 @@ def supplier_from_record(record, suppliers):
     return suppliers[data["supplier_id"]]
 
 
-def product_from_record(record, suppliers):
+def product_from_record(record: dict, suppliers: dict[str, Supplier]) -> Product:
     """Create the Product subclass named by a saved record's "type"."""
     common = (record["id"], record["name"], record["price"], record["stock"],
               supplier_from_record(record, suppliers))
@@ -57,7 +58,7 @@ def product_from_record(record, suppliers):
     raise ValueError(f"Unknown product type: {product_type}")
 
 
-def load_inventory():
+def load_inventory() -> Inventory:
     """Build an Inventory from inventory.json.
 
     If the file is missing or unreadable, the function reports this and
@@ -83,13 +84,13 @@ def load_inventory():
     return inventory
 
 
-def save_inventory(inventory):
+def save_inventory(inventory: Inventory) -> None:
     """Write the full inventory back to inventory.json."""
     with open(INVENTORY_FILE, "w") as f:
         json.dump(inventory.to_list(), f, indent=4)
 
 
-def add_product(inventory):
+def add_product(inventory: Inventory) -> None:
     """Prompt for a new product and add it to the inventory."""
     print("\nAdd New Product")
     product_id = input("Product ID: ").strip()
@@ -159,7 +160,7 @@ def add_product(inventory):
     print("\nProduct added successfully!")
 
 
-def update_stock(inventory):
+def update_stock(inventory: Inventory) -> None:
     """Look up a product by ID and set a new stock quantity."""
     print("\nUpdate Stock")
     product_id = input("Enter Product ID: ").strip()
@@ -181,7 +182,7 @@ def update_stock(inventory):
     print("\nStock updated successfully!")
 
 
-def search_product(inventory):
+def search_product(inventory: Inventory) -> None:
     """Look up a product by ID and print its details."""
     print("\nSearch Product")
     product_id = input("Enter Product ID: ").strip()
@@ -201,7 +202,7 @@ def search_product(inventory):
     print("-" * 48)
 
 
-def get_valid_price(prompt):
+def get_valid_price(prompt: str) -> float | None:
     """Prompt for a price and return a non-negative float, or None if invalid."""
     raw = input(prompt).strip()
     try:
@@ -218,7 +219,7 @@ def get_valid_price(prompt):
     return price
 
 
-def get_valid_size(prompt):
+def get_valid_size(prompt: str) -> float | None:
     """Prompt for a weight or download size and return a positive float, or None."""
     raw = input(prompt).strip()
     try:
@@ -232,7 +233,7 @@ def get_valid_size(prompt):
     return size
 
 
-def get_valid_stock(prompt):
+def get_valid_stock(prompt: str) -> int | None:
     """Prompt for a stock quantity and return a non-negative int, or None if invalid."""
     raw = input(prompt).strip()
     try:
@@ -246,7 +247,7 @@ def get_valid_stock(prompt):
     return stock
 
 
-def print_menu():
+def print_menu() -> None:
     """Print the main menu options."""
     print("\n----------- MENU -----------")
     print("1. Display All Products")
@@ -258,7 +259,7 @@ def print_menu():
     print("----------------------------")
 
 
-def main():
+def main() -> None:
     print("=" * 40)
     print("INVENTORY MANAGEMENT SYSTEM")
     print("=" * 40)

@@ -1,6 +1,7 @@
 """Section 9 checklist tests. Run with: python -m unittest -v"""
 
 import contextlib
+import inspect
 import io
 import json
 import os
@@ -9,6 +10,7 @@ import typing
 import unittest
 
 import inventory_manager
+from can_be_shipped import CanBeShipped
 from digital_product import DigitalProduct
 from inventory import Inventory
 from order import Order, OrderLine
@@ -96,6 +98,28 @@ class TypeHintTests(unittest.TestCase):
         self.assertEqual(typing.get_type_hints(Order.add_order_line)["product"], Product)
         self.assertEqual(typing.get_type_hints(OrderLine.calculate_subtotal)["return"], float)
         self.assertEqual(typing.get_type_hints(Product.__init__)["supplier"], Supplier)
+
+    def test_domain_public_methods_have_return_hints(self):
+        classes = (Supplier, Product, PhysicalProduct, DigitalProduct,
+                   SubscriptionProduct, Inventory, OrderLine, Order, CanBeShipped)
+        for cls in classes:
+            for name, method in inspect.getmembers(cls, inspect.isfunction):
+                if name.startswith("_"):
+                    continue
+                self.assertIn("return", typing.get_type_hints(method),
+                              f"{cls.__name__}.{name} needs a return type hint")
+
+    def test_inventory_manager_functions_have_hints(self):
+        for name, function in inspect.getmembers(inventory_manager, inspect.isfunction):
+            if function.__module__ != inventory_manager.__name__:
+                continue
+            hints = typing.get_type_hints(function)
+            self.assertIn("return", hints, f"{name} needs a return type hint")
+            for parameter in inspect.signature(function).parameters.values():
+                if parameter.name in ("self", "cls"):
+                    continue
+                self.assertIn(parameter.name, hints,
+                              f"{name}({parameter.name}) needs a type hint")
 
 
 class LspPolymorphismTests(unittest.TestCase):

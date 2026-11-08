@@ -12,9 +12,9 @@ class SubscriptionProduct(Product):
         super().__init__(product_id, name, price, stock, supplier)
         if billing_months <= 0:
             raise ValueError("Billing period must be greater than zero.")
-        self.__billing_months = billing_months
+        self.__billing_months: int = billing_months
 
-    def get_billing_months(self):
+    def get_billing_months(self) -> int:
         return self.__billing_months
 
     def display_information(self) -> None:
@@ -22,7 +22,7 @@ class SubscriptionProduct(Product):
         super().display_information()
         print(f"    Billing Period: {self.__billing_months} month(s)")
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, object]:
         """Return this product's data, tagged with its type."""
         data = super().to_dict()
         data["type"] = "subscription"
