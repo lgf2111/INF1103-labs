@@ -1,0 +1,8 @@
+637cffd (HEAD -> main, origin/main, origin/HEAD) Lab8: complete type hints and add submission README
+9aace07 Lab8: add association, aggregation, composition, type hints, LSP demo, tests and UML
+bc8fe22 Untrack zip archives now covered by .gitignore
+45be6b3 Add .gitignore for .DS_Store and zip files
+a3b5ca9 Lab5: add git log, docker screenshots, and lab PDFs
+1df5406 Lab5: inventory management system with JSON persistence and Docker
+805eafd Completed Lab 4
+38e36c0 Refresh git log.txt

@@ -1,0 +1,94 @@
+$ docker build -t inf1103-lab8 .
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 406B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 1.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 384B 0.0s done
+#4 DONE 0.1s
+
+#5 [1/3] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#5 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#5 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b 0.1s done
+#5 DONE 0.1s
+
+#6 [2/3] WORKDIR /app
+#6 CACHED
+
+#7 [3/3] COPY *.py ./
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:9ec7e2ba1a60e60900a3a62d8b98fb5901a2ae9e915cdefc88eb5a7ea179a392 done
+#8 exporting config sha256:5cb5bfca389b70b99d3253ba6c785cc8c44ccad9fde8d902a4c7a73eea1630d3 done
+#8 exporting attestation manifest sha256:e5803e8f5ab2b8a0f9ea9c4131e2cb6d08339fb750f6bf2275593252a93a9967 0.0s done
+#8 exporting manifest list sha256:fb88c180874c609f805817ccbe0af69d85d813a54dba991ca496889dbd9b2294 0.0s done
+#8 naming to docker.io/library/inf1103-lab8:latest done
+#8 unpacking to docker.io/library/inf1103-lab8:latest done
+#8 DONE 0.1s
+
+$ docker images inf1103-lab8
+IMAGE                 ID             DISK USAGE   CONTENT SIZE   EXTRA
+inf1103-lab8:latest   fb88c180874c        201MB         43.6MB        
+
+$ docker run --rm inf1103-lab8 python -m unittest -v
+test_duplicate_id_rejected (test_inventory.AggregationTests.test_duplicate_id_rejected) ... ok
+test_remove_and_transfer_does_not_destroy_product (test_inventory.AggregationTests.test_remove_and_transfer_does_not_destroy_product) ... ok
+test_remove_missing_raises (test_inventory.AggregationTests.test_remove_missing_raises) ... ok
+test_product_keeps_supplier_after_variable_deleted (test_inventory.AssociationTests.test_product_keeps_supplier_after_variable_deleted) ... ok
+test_invalid_quantity (test_inventory.CompositionTests.test_invalid_quantity) ... ok
+test_order_creates_lines_and_totals (test_inventory.CompositionTests.test_order_creates_lines_and_totals) ... ok
+test_remove_line_updates_total (test_inventory.CompositionTests.test_remove_line_updates_total) ... ok
+test_same_product_in_two_orders_gives_two_lines_one_product (test_inventory.CompositionTests.test_same_product_in_two_orders_gives_two_lines_one_product) ... ok
+test_one_collection_polymorphic_calls (test_inventory.LspPolymorphismTests.test_one_collection_polymorphic_calls) ... ok
+test_product_is_abstract (test_inventory.LspPolymorphismTests.test_product_is_abstract) ... ok
+test_update_stock_contract_preserved_by_all_subclasses (test_inventory.LspPolymorphismTests.test_update_stock_contract_preserved_by_all_subclasses) ... ok
+test_round_trip_shares_suppliers (test_inventory.PersistenceTests.test_round_trip_shares_suppliers) ... ok
+test_domain_public_methods_have_return_hints (test_inventory.TypeHintTests.test_domain_public_methods_have_return_hints) ... ok
+test_hints_present (test_inventory.TypeHintTests.test_hints_present) ... ok
+test_inventory_manager_functions_have_hints (test_inventory.TypeHintTests.test_inventory_manager_functions_have_hints) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.002s
+
+OK
+
+$ docker run --rm inf1103-lab8 python demo.py
+== 2. Association: Supplier - Product ==
+Supplier S001: TechSource <sales@techsource.example>
+Supplier S001: TechSource <sales@techsource.example>
+Same Supplier object: True
+
+== 3. Aggregation: Inventory - Product ==
+Laptop still usable after removal: Laptop 15
+Laptop in A: None | in B: True
+
+== 4. Composition: Order - OrderLine ==
+Order O001
+  2 x Laptop @ $1200.00 = $2400.00
+  1 x Antivirus @ $39.90 = $39.90
+  Total: $2439.90
+Order O002
+  1 x Laptop @ $1200.00 = $1200.00
+  Total: $1200.00
+OrderLine objects distinct: True
+Product object shared: True
+After removing a line, order 1 total: $2400.00
+
+== 6/7. LSP and polymorphism ==
+ID: P001 | Name: Laptop | Price: $1200.00 | Stock: 15
+    Weight: 2.50 kg
+   -> This product requires physical shipping.
+ID: D001 | Name: Antivirus | Price: $39.90 | Stock: 100
+    Download Size: 850.00 MB
+   -> This product is delivered digitally.

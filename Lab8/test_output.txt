@@ -10,9 +10,11 @@ test_one_collection_polymorphic_calls (test_inventory.LspPolymorphismTests.test_
 test_product_is_abstract (test_inventory.LspPolymorphismTests.test_product_is_abstract) ... ok
 test_update_stock_contract_preserved_by_all_subclasses (test_inventory.LspPolymorphismTests.test_update_stock_contract_preserved_by_all_subclasses) ... ok
 test_round_trip_shares_suppliers (test_inventory.PersistenceTests.test_round_trip_shares_suppliers) ... ok
+test_domain_public_methods_have_return_hints (test_inventory.TypeHintTests.test_domain_public_methods_have_return_hints) ... ok
 test_hints_present (test_inventory.TypeHintTests.test_hints_present) ... ok
+test_inventory_manager_functions_have_hints (test_inventory.TypeHintTests.test_inventory_manager_functions_have_hints) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 0.001s
+Ran 15 tests in 0.001s
 
 OK
