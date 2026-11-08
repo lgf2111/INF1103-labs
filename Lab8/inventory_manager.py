@@ -1,7 +1,8 @@
-"""Inventory Management System with physical, digital and subscription products.
+"""Inventory Management System for Lab 8.
 
-Extends the Lab 6 system with product types built on an abstract Product class.
-This main program is responsible for:
+Extends the Lab 7 product hierarchy with Supplier, Inventory, Order and OrderLine,
+demonstrating association, aggregation, composition, type hints, LSP and
+polymorphism. This main program is responsible for:
 - Displaying the menu and getting user input.
 - Calling the appropriate Inventory and Product methods.
 - Loading inventory.json at startup and saving it back (file handling), using
