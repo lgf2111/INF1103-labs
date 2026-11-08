@@ -92,3 +92,47 @@ ID: P001 | Name: Laptop | Price: $1200.00 | Stock: 15
 ID: D001 | Name: Antivirus | Price: $39.90 | Stock: 100
     Download Size: 850.00 MB
    -> This product is delivered digitally.
+
+$ printf "1
+6
+" | docker run -i --rm inf1103-lab8 python inventory_manager.py
+========================================
+INVENTORY MANAGEMENT SYSTEM
+========================================
+inventory.json not found. Starting with default inventory.
+
+----------- MENU -----------
+1. Display All Products
+2. Add Product
+3. Update Stock
+4. Search Product
+5. Save Inventory
+6. Exit
+----------------------------
+Enter option: 
+Current Inventory
+------------------------------------------------
+ID: P001 | Name: Laptop | Price: $1200.00 | Stock: 15
+    Weight: 2.50 kg
+ID: P002 | Name: Mouse | Price: $25.50 | Stock: 40
+    Weight: 0.20 kg
+ID: P003 | Name: Keyboard | Price: $45.00 | Stock: 25
+    Weight: 0.80 kg
+ID: D001 | Name: Antivirus | Price: $39.90 | Stock: 100
+    Download Size: 850.00 MB
+------------------------------------------------
+
+----------- MENU -----------
+1. Display All Products
+2. Add Product
+3. Update Stock
+4. Search Product
+5. Save Inventory
+6. Exit
+----------------------------
+Enter option: 
+Saving inventory before exit...
+Inventory saved successfully.
+
+Thank you for using Inventory Management System.
+Program terminated.

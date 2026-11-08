@@ -90,6 +90,7 @@ python inventory_manager.py
 | `docker_build.png` | Docker image build evidence. |
 | `docker_images.png` | Built image listed by `docker images`. |
 | `docker_run.png` | Tests and demo running inside the container. |
+| `docker_app.png` | The interactive menu program running inside the container. |
 | `git_workflow.png` | `git status` → `git add` → `git commit` → `git push` → `git log` evidence. |
 | `git_log.txt` | Text version of the recent commit history. |
 
@@ -101,7 +102,7 @@ python inventory_manager.py
 - [x] **Evidence of type hints** — hints in every domain class, `inventory_manager.py`, the UML diagram and two dedicated tests.
 - [x] **Test code demonstrating the relationships and LSP** — `test_inventory.py` (15 tests, all passing in Docker) and `test_output.txt`.
 - [x] **Polymorphic behaviour through `Product` references** — `demo.py` and `program_output.txt`; one loop calls `display_information()` and `get_fulfilment_info()` on mixed product types without `isinstance()` or separate loops.
-- [x] **Git and Docker workflow evidence** — `git_workflow.png`, `git_log.txt`, `docker_workflow.txt`, `docker_build.png`, `docker_images.png` and `docker_run.png`.
+- [x] **Git and Docker workflow evidence** — `git_workflow.png`, `git_log.txt`, `docker_workflow.txt`, `docker_build.png`, `docker_images.png`, `docker_run.png` and `docker_app.png`.
 
 ## Key design notes
 
