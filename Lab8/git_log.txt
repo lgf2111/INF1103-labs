@@ -1,3 +1,5 @@
+90a0aef Lab8: clarify main program documentation
+eb59155 Lab8: refresh git log for submission
 9c0bd69 Lab8: add interactive Docker run evidence
 74e4107 Lab8: refresh git log
 4827a21 Lab8: record final commit history
@@ -6,5 +8,3 @@ e33966d Lab8: add Docker and git workflow evidence
 9aace07 Lab8: add association, aggregation, composition, type hints, LSP demo, tests and UML
 bc8fe22 Untrack zip archives now covered by .gitignore
 45be6b3 Add .gitignore for .DS_Store and zip files
-a3b5ca9 Lab5: add git log, docker screenshots, and lab PDFs
-1df5406 Lab5: inventory management system with JSON persistence and Docker
