@@ -1,0 +1,34 @@
+be0d975 Add predict-first notes, UML diagram and README
+ Lab9_predict_first_notes.docx | Bin 0 -> 40642 bytes
+ README.md                     |  92 +++++++++++++++++++++++++
+ uml_class_diagram.png         | Bin 0 -> 167337 bytes
+ uml_class_diagram.puml        | 154 ++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 246 insertions(+)
+b2ac1ea Add tests for strategies, factory, validation and CSV loading
+ tests/__init__.py          |   1 +
+ tests/test_discounts.py    |  96 +++++++++++++++++++++++++
+ tests/test_factory.py      |  66 ++++++++++++++++++
+ tests/test_file_loading.py |  72 +++++++++++++++++++
+ tests/test_inventory.py    | 170 +++++++++++++++++++++++++++++++++++++++++++++
+ tests/test_validation.py   |  71 +++++++++++++++++++
+ 6 files changed, 476 insertions(+)
+6cd6892 Add ProductFactory, validation and CSV loading
+ file_loader.py       |  47 ++++++++
+ inventory_manager.py | 320 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ product_factory.py   |  32 ++++++
+ products.csv         |   6 +
+ 4 files changed, 405 insertions(+)
+d0a2f7f Lab 9: carry the Lab 8 model forward and add the Strategy pattern
+ .gitignore              |  3 ++
+ Dockerfile              | 14 +++++++++
+ can_be_shipped.py       | 15 +++++++++
+ digital_product.py      | 33 ++++++++++++++++++++
+ discount_strategy.py    | 81 +++++++++++++++++++++++++++++++++++++++++++++++++
+ inventory.json          | 54 +++++++++++++++++++++++++++++++++
+ inventory.py            | 44 +++++++++++++++++++++++++++
+ order.py                | 69 +++++++++++++++++++++++++++++++++++++++++
+ physical_product.py     | 41 +++++++++++++++++++++++++
+ product.py              | 64 ++++++++++++++++++++++++++++++++++++++
+ subscription_product.py | 33 ++++++++++++++++++++
+ supplier.py             | 17 +++++++++++
+ 12 files changed, 468 insertions(+)

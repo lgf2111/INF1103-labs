@@ -1,0 +1,102 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 455B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 1.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+#4 resolve docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b 0.1s done
+#4 DONE 0.1s
+
+#5 [internal] load build context
+#5 transferring context: 98.68kB 0.0s done
+#5 DONE 0.1s
+
+#6 [2/5] WORKDIR /app
+#6 CACHED
+
+#7 [3/5] COPY *.py ./
+#7 DONE 0.1s
+
+#8 [4/5] COPY *.csv ./
+#8 DONE 0.1s
+
+#9 [5/5] COPY tests ./tests
+#9 DONE 0.1s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.2s done
+#10 exporting manifest sha256:f8754b5c8462c17739cd89c87eff46f826873844c023ba41f67c804810346eb5
+#10 exporting manifest sha256:f8754b5c8462c17739cd89c87eff46f826873844c023ba41f67c804810346eb5 0.0s done
+#10 exporting config sha256:0d9f68ffecfa86b69ec3762b2184d6d1090953378b215f23293f6e77a06ddd31 0.0s done
+#10 exporting attestation manifest sha256:d90a705fe9f5d3b51b6c4846a92e48b1499015118915be91038b049f6e42f314 0.0s done
+#10 exporting manifest list sha256:6157e8866bd2d202b9d0b6d7b6eef3da475182eee1df6232e3ad4ede5e7c98b8 0.0s done
+#10 naming to docker.io/library/inf1103-lab9:latest done
+#10 unpacking to docker.io/library/inf1103-lab9:latest 0.1s done
+#10 DONE 0.3s
+.................................................
+----------------------------------------------------------------------
+Ran 49 tests in 0.004s
+
+OK
+== 2.3 Strategy: one order, three discounts ==
+Default (NoDiscount): $1251.00
+BulkDiscount(200, 20): $1231.00
+PercentageDiscount(10): $1125.90
+
+== 2.4 A fourth strategy, Order unchanged ==
+StudentDiscount(5%): $1188.45
+
+== Predict first: a 250 order ==
+Subtotal: $250.00
+BulkDiscount(200, 20): $230.00
+then PercentageDiscount(10): $225.00
+
+== 3.2 An unknown product type ==
+Caught ValueError: Unknown product type: service
+
+== 4. Validation belongs to the class that owns the rule ==
+price of 0: Price must be greater than zero.
+negative stock: Stock quantity cannot be negative.
+quantity of 0: Quantity must be greater than zero.
+
+== 5.2 Loading products.csv ==
+Row 4 skipped: Unknown product type: service
+Row 5 skipped: could not convert string to float: 'abc'
+3 products loaded.
+Load attempt finished.
+
+Current Inventory
+------------------------------------------------
+ID: P001 | Name: Desk Lamp | Price: $25.00 | Stock: 10
+    Weight: 1.00 kg
+ID: D001 | Name: Photo Editor | Price: $49.90 | Stock: 100
+    Download Size: 1.00 MB
+ID: P003 | Name: Monitor Stand | Price: $39.50 | Stock: 7
+    Weight: 1.00 kg
+------------------------------------------------
+
+== 5.2 A file that is not there ==
+Products file not found: products-not-here.csv
+Load attempt finished.
+
+== 7. Polymorphism through the common Product type ==
+ID: P001 | Name: Desk Lamp | Price: $25.00 | Stock: 10
+    Weight: 1.00 kg
+   -> This product requires physical shipping.
+ID: D001 | Name: Photo Editor | Price: $49.90 | Stock: 100
+    Download Size: 1.00 MB
+   -> This product is delivered digitally.
+ID: P003 | Name: Monitor Stand | Price: $39.50 | Stock: 7
+    Weight: 1.00 kg
+   -> This product requires physical shipping.
+
+Default discount object: NoDiscount

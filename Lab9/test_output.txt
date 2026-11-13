@@ -1,0 +1,56 @@
+test_a_new_strategy_needs_no_change_to_order (tests.test_discounts.OrderDiscountTests.test_a_new_strategy_needs_no_change_to_order) ... ok
+test_order_can_be_created_with_a_strategy (tests.test_discounts.OrderDiscountTests.test_order_can_be_created_with_a_strategy) ... ok
+test_order_contains_no_discount_branching (tests.test_discounts.OrderDiscountTests.test_order_contains_no_discount_branching) ... ok
+test_order_defaults_to_no_discount (tests.test_discounts.OrderDiscountTests.test_order_defaults_to_no_discount) ... ok
+test_set_discount_changes_the_total_of_an_existing_order (tests.test_discounts.OrderDiscountTests.test_set_discount_changes_the_total_of_an_existing_order) ... ok
+test_something_that_is_not_a_strategy_is_rejected (tests.test_discounts.OrderDiscountTests.test_something_that_is_not_a_strategy_is_rejected) ... ok
+test_two_orders_can_share_one_strategy_object (tests.test_discounts.OrderDiscountTests.test_two_orders_can_share_one_strategy_object) ... ok
+test_bulk_amount_must_be_smaller_than_the_threshold (tests.test_discounts.StrategyTests.test_bulk_amount_must_be_smaller_than_the_threshold) ... ok
+test_bulk_discount_applies_at_the_threshold (tests.test_discounts.StrategyTests.test_bulk_discount_applies_at_the_threshold) ... ok
+test_bulk_discount_does_nothing_below_the_threshold (tests.test_discounts.StrategyTests.test_bulk_discount_does_nothing_below_the_threshold) ... ok
+test_every_strategy_shares_the_same_contract (tests.test_discounts.StrategyTests.test_every_strategy_shares_the_same_contract) ... ok
+test_no_discount_returns_the_total_unchanged (tests.test_discounts.StrategyTests.test_no_discount_returns_the_total_unchanged) ... ok
+test_percentage_discount_takes_a_percentage (tests.test_discounts.StrategyTests.test_percentage_discount_takes_a_percentage) ... ok
+test_percentage_outside_zero_to_one_hundred_is_rejected (tests.test_discounts.StrategyTests.test_percentage_outside_zero_to_one_hundred_is_rejected) ... ok
+test_student_discount_is_five_percent (tests.test_discounts.StrategyTests.test_student_discount_is_five_percent) ... ok
+test_client_code_does_not_build_products_directly (tests.test_factory.FactoryTests.test_client_code_does_not_build_products_directly)
+inventory_manager and demo ask the factory instead of the classes. ... ok
+test_creates_each_known_type (tests.test_factory.FactoryTests.test_creates_each_known_type) ... ok
+test_factory_copies_values_onto_the_product (tests.test_factory.FactoryTests.test_factory_copies_values_onto_the_product) ... ok
+test_factory_is_the_only_module_building_products (tests.test_factory.FactoryTests.test_factory_is_the_only_module_building_products) ... ok
+test_returns_the_common_product_type (tests.test_factory.FactoryTests.test_returns_the_common_product_type) ... ok
+test_unknown_type_raises_a_clear_value_error (tests.test_factory.FactoryTests.test_unknown_type_raises_a_clear_value_error) ... ok
+test_a_duplicate_id_is_skipped (tests.test_file_loading.LoadProductsTests.test_a_duplicate_id_is_skipped) ... ok
+test_a_missing_file_is_reported_without_crashing (tests.test_file_loading.LoadProductsTests.test_a_missing_file_is_reported_without_crashing) ... ok
+test_bad_rows_are_skipped_and_the_rest_load (tests.test_file_loading.LoadProductsTests.test_bad_rows_are_skipped_and_the_rest_load) ... ok
+test_the_finally_message_prints_even_on_a_missing_file (tests.test_file_loading.LoadProductsTests.test_the_finally_message_prints_even_on_a_missing_file) ... ok
+test_valid_rows_are_loaded (tests.test_file_loading.LoadProductsTests.test_valid_rows_are_loaded) ... ok
+test_duplicate_id_rejected (tests.test_inventory.AggregationTests.test_duplicate_id_rejected) ... ok
+test_remove_and_transfer_does_not_destroy_product (tests.test_inventory.AggregationTests.test_remove_and_transfer_does_not_destroy_product) ... ok
+test_remove_missing_raises (tests.test_inventory.AggregationTests.test_remove_missing_raises) ... ok
+test_product_keeps_supplier_after_variable_deleted (tests.test_inventory.AssociationTests.test_product_keeps_supplier_after_variable_deleted) ... ok
+test_invalid_quantity (tests.test_inventory.CompositionTests.test_invalid_quantity) ... ok
+test_order_creates_lines_and_totals (tests.test_inventory.CompositionTests.test_order_creates_lines_and_totals) ... ok
+test_remove_line_updates_total (tests.test_inventory.CompositionTests.test_remove_line_updates_total) ... ok
+test_same_product_in_two_orders_gives_two_lines_one_product (tests.test_inventory.CompositionTests.test_same_product_in_two_orders_gives_two_lines_one_product) ... ok
+test_one_collection_polymorphic_calls (tests.test_inventory.LspPolymorphismTests.test_one_collection_polymorphic_calls) ... ok
+test_product_is_abstract (tests.test_inventory.LspPolymorphismTests.test_product_is_abstract) ... ok
+test_update_stock_contract_preserved_by_all_subclasses (tests.test_inventory.LspPolymorphismTests.test_update_stock_contract_preserved_by_all_subclasses) ... ok
+test_round_trip_shares_suppliers (tests.test_inventory.PersistenceTests.test_round_trip_shares_suppliers) ... ok
+test_domain_public_methods_have_return_hints (tests.test_inventory.TypeHintTests.test_domain_public_methods_have_return_hints) ... ok
+test_hints_present (tests.test_inventory.TypeHintTests.test_hints_present) ... ok
+test_inventory_manager_functions_have_hints (tests.test_inventory.TypeHintTests.test_inventory_manager_functions_have_hints) ... ok
+test_a_negative_number_is_rejected (tests.test_validation.PositiveFloatTests.test_a_negative_number_is_rejected) ... ok
+test_text_is_rejected_then_zero_then_a_valid_number (tests.test_validation.PositiveFloatTests.test_text_is_rejected_then_zero_then_a_valid_number) ... ok
+test_the_first_valid_number_is_returned_immediately (tests.test_validation.PositiveFloatTests.test_the_first_valid_number_is_returned_immediately) ... ok
+test_a_negative_price_is_rejected (tests.test_validation.ValidationTests.test_a_negative_price_is_rejected) ... ok
+test_a_price_of_zero_is_rejected (tests.test_validation.ValidationTests.test_a_price_of_zero_is_rejected) ... ok
+test_a_quantity_of_zero_is_rejected (tests.test_validation.ValidationTests.test_a_quantity_of_zero_is_rejected) ... ok
+test_a_subclass_cannot_relax_a_rule_from_product (tests.test_validation.ValidationTests.test_a_subclass_cannot_relax_a_rule_from_product)
+LSP: the stock rule is part of Product's contract, so every type keeps it. ... ok
+test_negative_stock_is_rejected (tests.test_validation.ValidationTests.test_negative_stock_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 49 tests in 0.006s
+
+OK
