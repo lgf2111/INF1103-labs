@@ -1,0 +1,53 @@
+== 2.3 Strategy: one order, three discounts ==
+Default (NoDiscount): $1251.00
+BulkDiscount(200, 20): $1231.00
+PercentageDiscount(10): $1125.90
+
+== 2.4 A fourth strategy, Order unchanged ==
+StudentDiscount(5%): $1188.45
+
+== Predict first: a 250 order ==
+Subtotal: $250.00
+BulkDiscount(200, 20): $230.00
+then PercentageDiscount(10): $225.00
+
+== 3.2 An unknown product type ==
+Caught ValueError: Unknown product type: service
+
+== 4. Validation belongs to the class that owns the rule ==
+price of 0: Price must be greater than zero.
+negative stock: Stock quantity cannot be negative.
+quantity of 0: Quantity must be greater than zero.
+
+== 5.2 Loading products.csv ==
+Row 4 skipped: Unknown product type: service
+Row 5 skipped: could not convert string to float: 'abc'
+3 products loaded.
+Load attempt finished.
+
+Current Inventory
+------------------------------------------------
+ID: P001 | Name: Desk Lamp | Price: $25.00 | Stock: 10
+    Weight: 1.00 kg
+ID: D001 | Name: Photo Editor | Price: $49.90 | Stock: 100
+    Download Size: 1.00 MB
+ID: P003 | Name: Monitor Stand | Price: $39.50 | Stock: 7
+    Weight: 1.00 kg
+------------------------------------------------
+
+== 5.2 A file that is not there ==
+Products file not found: products-not-here.csv
+Load attempt finished.
+
+== 7. Polymorphism through the common Product type ==
+ID: P001 | Name: Desk Lamp | Price: $25.00 | Stock: 10
+    Weight: 1.00 kg
+   -> This product requires physical shipping.
+ID: D001 | Name: Photo Editor | Price: $49.90 | Stock: 100
+    Download Size: 1.00 MB
+   -> This product is delivered digitally.
+ID: P003 | Name: Monitor Stand | Price: $39.50 | Stock: 7
+    Weight: 1.00 kg
+   -> This product requires physical shipping.
+
+Default discount object: NoDiscount

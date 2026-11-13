@@ -1,0 +1,154 @@
+@startuml
+scale 2
+title Lab 9 UML Class Diagram: Inventory Management System
+
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classBackgroundColor #FFFFE0
+skinparam classBorderColor #000000
+skinparam classFontColor #000000
+skinparam classFontName Arial
+skinparam classFontSize 11
+skinparam classAttributeFontColor #000000
+skinparam classAttributeFontName Arial
+skinparam classAttributeFontSize 10
+skinparam classStereotypeFontColor #000000
+skinparam classStereotypeFontSize 10
+skinparam arrowColor #000000
+skinparam arrowFontColor #000000
+skinparam linetype ortho
+skinparam nodesep 55
+skinparam ranksep 55
+hide circle
+hide empty members
+
+class Supplier {
+  + supplier_id: str
+  + name: str
+  + contact_email: str
+  + display_information(): void
+  + to_dict(): dict
+}
+
+class Product <<abstract>> {
+  - product_id: str
+  - name: str
+  - price: float
+  - stock: int
+  + supplier: Supplier
+  + get_product_id(): str
+  + get_name(): str
+  + get_price(): float
+  + get_stock(): int
+  + update_stock(quantity: int): void
+  + display_information(): void
+  + to_dict(): dict
+  {abstract} + get_fulfilment_info(): str
+}
+
+class PhysicalProduct {
+  - weight: float
+  + get_weight(): float
+  + calculate_shipping_cost(): float
+  + display_information(): void
+  + to_dict(): dict
+  + get_fulfilment_info(): str
+}
+
+class DigitalProduct {
+  - download_size: float
+  + get_download_size(): float
+  + display_information(): void
+  + to_dict(): dict
+  + get_fulfilment_info(): str
+}
+
+class SubscriptionProduct {
+  - billing_months: int
+  + get_billing_months(): int
+  + display_information(): void
+  + to_dict(): dict
+  + get_fulfilment_info(): str
+}
+
+class CanBeShipped <<interface>> {
+  {abstract} + calculate_shipping_cost(): float
+}
+
+class Inventory {
+  - products: Product [0..*]
+  + add_product(product: Product): void
+  + remove_product(product_id: str): void
+  + find_product(product_id: str): Product
+  + display_all(): void
+  + to_list(): list
+}
+
+class Order {
+  - order_id: str
+  - order_lines: OrderLine [0..*]
+  + discount: DiscountStrategy
+  + set_discount(discount: DiscountStrategy): void
+  + add_order_line(product: Product, quantity: int): void
+  + remove_order_line(product_id: str): void
+  + calculate_total(): float
+  + display(): void
+}
+
+class OrderLine {
+  + product: Product
+  + quantity: int
+  + calculate_subtotal(): float
+  + display(): void
+}
+
+class DiscountStrategy <<abstract>> {
+  {abstract} + apply(total: float): float
+}
+
+class NoDiscount {
+  + apply(total: float): float
+}
+
+class PercentageDiscount {
+  - percentage: float
+  + get_percentage(): float
+  + apply(total: float): float
+}
+
+class BulkDiscount {
+  - threshold: float
+  - amount: float
+  + get_threshold(): float
+  + get_amount(): float
+  + apply(total: float): float
+}
+
+class StudentDiscount {
+  - percentage: float
+  + get_percentage(): float
+  + apply(total: float): float
+}
+
+class ProductFactory {
+  + {static} create(product_type: str, product_id: str, name: str, price: float, stock: int, supplier: Supplier): Product
+}
+
+Supplier "1" -- "0..*" Product : supplies
+Inventory "0..1" o-- "0..*" Product : contains
+Product <|-- PhysicalProduct
+Product <|-- DigitalProduct
+Product <|-- SubscriptionProduct
+CanBeShipped <|.. PhysicalProduct
+Order "1" *-- "0..*" OrderLine : composed of
+Product "1" -- "0..*" OrderLine : refers to
+Order "0..*" -- "1" DiscountStrategy : uses
+DiscountStrategy <|-- NoDiscount
+DiscountStrategy <|-- PercentageDiscount
+DiscountStrategy <|-- BulkDiscount
+DiscountStrategy <|-- StudentDiscount
+ProductFactory ..> Product : <<creates>>
+
+@enduml
